@@ -71,3 +71,5 @@ for (let y = 1; y <= 10; y++) {
   // CODE DIBAWAH AKAN DIJALANKAN JIKA IF DIATAS MERETURN FALSE
   console.log(y);
 }
+
+console.log("test");

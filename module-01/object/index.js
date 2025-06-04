@@ -119,3 +119,104 @@ console.log(BMW.getColor());
 
 const BMW2 = new Car("BMW", 50000, "IX", "white");
 console.log(BMW2.sellCar());
+
+class Product {
+  name;
+  price;
+
+  constructor(name, price) {
+    this.name = name;
+    this.price = price;
+  }
+}
+
+class Elektronik extends Product {
+  brand;
+
+  constructor(name, price, brand) {
+    super(name, price);
+    this.brand = brand;
+  }
+}
+
+class TV extends Elektronik {
+  layar;
+
+  constructor(name, price, brand, layar) {
+    super(name, price, brand);
+    this.layar = layar;
+  }
+}
+
+class Buku extends Product {
+  author;
+  publisher;
+
+  constructor(name, price, author, publisher) {
+    super(name, price);
+    this.author = author;
+    this.publisher = publisher;
+  }
+}
+
+const tv = new TV("Samsung", 200000, "Samsung", "22 Inch");
+console.log(tv);
+
+const buku = new Buku("Harry Potter", 50000, "JK Rowling", "Matahari");
+console.log(buku);
+
+class Animal {
+  #tooth;
+
+  makeASound() {
+    return "Bersuara";
+  }
+}
+
+class Dog extends Animal {
+  constructor() {
+    super();
+  }
+
+  makeASound() {
+    return "Bark";
+  }
+}
+
+class Cat extends Animal {
+  constructor() {
+    super();
+  }
+
+  makeASound() {
+    return "Meow";
+  }
+}
+
+class Fox extends Animal {
+  constructor() {
+    super();
+  }
+}
+
+class Fish extends Animal {
+  constructor() {
+    super();
+  }
+
+  makeASound() {
+    return "Tidak Bersuara";
+  }
+}
+
+const anjing = new Dog();
+console.log(anjing.makeASound());
+
+const kucing = new Cat();
+console.log(kucing.makeASound());
+
+const rubah = new Fox();
+console.log(rubah.makeASound());
+
+const ikan = new Fish();
+console.log(ikan.makeASound());

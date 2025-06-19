@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+.navbar {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar {
+    --background: #ededed;
+    --foreground: #0a0a0a;
+  }
+}
+
+@layer components {
+  .navbar {
+    @apply flex justify-between p-2.5 text-[var(--foreground)] items-center bg-[var(--background)];
+  }
+}

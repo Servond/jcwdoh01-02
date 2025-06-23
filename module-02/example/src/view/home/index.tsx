@@ -6,13 +6,13 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export default function HomeView() {
-  const { isLogin } = useAuthStore((state) => state);
-  const [todos, setTodos] = useState<string[]>([]);
+  const { isLogin, onAddTodos, todos } = useAuthStore((state) => state);
+  //   const [todos, setTodos] = useState<string[]>([]);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const onAdd = () => {
     if (inputRef.current?.value) {
-      setTodos([...todos, inputRef.current?.value as string]);
+      onAddTodos([...todos, inputRef.current?.value as string]);
     }
   };
 

@@ -1,10 +1,12 @@
 "use client";
+
 import { Button } from "../ui/button";
 import { LoginModal } from "./components/login";
 import useAuthStore from "@/store/useAuthStore";
 
 export default function Navbar() {
   const { user, isLogin, clearAuth } = useAuthStore((state) => state);
+
   return (
     <div className="flex flex-row w-full p-4 justify-between align-middle shadow-2xl">
       <div>

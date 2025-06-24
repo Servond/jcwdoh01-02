@@ -1,7 +1,8 @@
 "use client";
 
 import { Button } from "../ui/button";
-import { LoginModal } from "./components/login";
+import { LoginModal } from "./components/login/login";
+import { RegisterModal } from "./components/register/register";
 import useAuthStore from "@/store/useAuthStore";
 
 export default function Navbar() {
@@ -21,7 +22,10 @@ export default function Navbar() {
             </Button>
           </div>
         ) : (
-          <LoginModal />
+          <div className="flex flex-row gap-3 align-middle">
+            <LoginModal />
+            <RegisterModal />
+          </div>
         )}
       </div>
     </div>

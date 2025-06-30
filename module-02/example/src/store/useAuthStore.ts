@@ -31,7 +31,7 @@ const useAuthStore = create<
     }),
     {
       name: "user-storage",
-      storage: createJSONStorage(() => localStorage),
+      storage: createJSONStorage(() => sessionStorage),
       partialize: (state) => ({
         user: state.user,
         isLogin: state.isLogin,

@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /transaction/
+
+Sitemap: https://personal.com/sitemap.xml

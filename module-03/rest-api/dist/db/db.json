@@ -1,0 +1,28 @@
+{
+  "expense": [
+    {
+      "title": "GOJEK",
+      "nominal": 5000,
+      "type": "EXPENSE",
+      "category": "FOOD",
+      "date": "2025-01-10T00:00:00.000Z",
+      "id": 1
+    },
+    {
+      "title": "GOJEK",
+      "nominal": 5000,
+      "type": "EXPENSE",
+      "category": "TRANSPORT",
+      "date": "2025-01-10T00:00:00.000Z",
+      "id": 2
+    },
+    {
+      "title": "GOJEK",
+      "nominal": 5000,
+      "type": "EXPENSE",
+      "category": "TRANSPORT",
+      "date": "2025-01-10T00:00:00.000Z",
+      "id": 3
+    }
+  ]
+}

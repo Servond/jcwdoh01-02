@@ -1,0 +1,59 @@
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+        
+model User {
+  id String  @id @default(uuid())
+  email String @unique
+  password String
+  firstname String
+  lastname String
+
+  role_id String
+  role Role @relation(fields: [role_id], references: [id])
+
+  expense Expense[]
+
+  @@map("user")
+}
+
+model Role {
+  id String @id @default(uuid())
+  name String
+
+  user User[]
+
+  @@map("role")
+}
+
+model Expense {
+  id String @id @default(uuid())
+  title String
+  nominal Decimal
+  type ExpenseType
+  category ExpenseCategory
+  date DateTime
+
+  user_id String
+  user User @relation(fields: [user_id], references: [id])
+
+  @@map("expense")
+}
+
+enum ExpenseType {
+  INCOME
+  EXPENSE
+}
+
+enum ExpenseCategory {
+  SALARY
+  FOOD
+  TRANSPORT
+}

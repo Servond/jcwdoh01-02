@@ -12,6 +12,7 @@ export async function createExpenseController(
 ) {
   try {
     const user = req.user as IUserParams;
+
     const resp = await createExpenseRepo({ ...req.body, user });
 
     res.json({

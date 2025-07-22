@@ -4,4 +4,5 @@ export interface ICreateUserParam {
   firstname: string;
   lastname: string;
   role: string;
+  avatar: Express.Multer.File;
 }

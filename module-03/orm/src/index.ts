@@ -1,4 +1,5 @@
 import express, { Request, Response, NextFunction } from "express";
+import { ZodError } from "zod";
 import { PORT } from "./config";
 
 // Router
@@ -24,7 +25,21 @@ app.use("/api/auth", authRouter);
 
 // ERROR MIDDLEWARE
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-  res.status(500).send(err.message);
+  if (err instanceof ZodError) {
+    const message = err.issues.map((error: any) => ({
+      message: `${error.path.join(".")} ${error.message}`,
+    }));
+
+    res.status(500).json({
+      message: "NG",
+      detail: message,
+    });
+  } else {
+    res.status(500).json({
+      message: "NG",
+      detail: err.message,
+    });
+  }
 });
 
 app.listen(port, () => {

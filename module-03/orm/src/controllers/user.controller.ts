@@ -11,7 +11,10 @@ export async function createUserController(
   next: NextFunction
 ) {
   try {
-    const resp = await createUserRepo(req.body as ICreateUserParam);
+    const resp = await createUserRepo({
+      ...req.body,
+      avatar: req.file,
+    } as ICreateUserParam);
 
     res.json({
       message: "OK",

@@ -1,6 +1,7 @@
 import prisma from "../lib/prisma";
 import { genSaltSync, hashSync } from "bcrypt";
 
+import { cloudinaryUpload } from "../utils/cloudinary";
 import { Role } from "@prisma/client";
 import { ICreateUserParam } from "../interfaces/user.types";
 
@@ -41,6 +42,7 @@ export async function findUserById(id: string) {
 }
 
 export async function createUserRepo(params: ICreateUserParam) {
+  let avatarUrl: string = "";
   try {
     const temp = await findUserByEmail(params.email);
 
@@ -49,11 +51,6 @@ export async function createUserRepo(params: ICreateUserParam) {
     }
 
     const salt = genSaltSync(10);
-    console.log(salt);
-    // $2b$10$ngIUx./EdmAl2NRzmE0x1u
-    // $2b$10$ngIUx./EdmAl2NRzmE0x1uh0ZpV2OSCe02TRST5yVdRbOqDfo9zEG
-    // $2b$10$KM32ilEQHqoVud2uURiZP.
-    // $2b$10$KM32ilEQHqoVud2uURiZP.40ehRbfot2qo7Mq8WSZAqgsVKT2ygiC
     const hashPass = hashSync(params.password, salt);
 
     const t = await prisma.$transaction(async (tx) => {
@@ -70,6 +67,11 @@ export async function createUserRepo(params: ICreateUserParam) {
         });
       }
 
+      if (params.avatar) {
+        const { secure_url } = await cloudinaryUpload(params.avatar);
+        avatarUrl = secure_url;
+      }
+
       const user = await tx.user.create({
         data: {
           email: params.email,
@@ -77,6 +79,7 @@ export async function createUserRepo(params: ICreateUserParam) {
           firstname: params.firstname,
           lastname: params.lastname,
           role_id: role.id,
+          avatar: avatarUrl,
         },
       });
 

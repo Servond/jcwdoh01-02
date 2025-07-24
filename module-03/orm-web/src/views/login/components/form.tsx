@@ -19,6 +19,7 @@ export default function LoginForm() {
     try {
       const resp = await LoginService(values);
       onSuccess(resp.data.user);
+      localStorage.setItem("token", resp.data.token);
     } catch (err) {
       console.log(err);
     }

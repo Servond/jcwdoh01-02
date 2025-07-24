@@ -48,6 +48,10 @@ model Expense {
   @@map("expense")
 }
 
+model TokenForgotPassword {
+  token String @unique
+}
+
 enum ExpenseType {
   INCOME
   EXPENSE

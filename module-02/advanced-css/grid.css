@@ -1,0 +1,17 @@
+body {
+  background-color: red;
+}
+.container-grid {
+  width: 800px;
+  display: grid;
+  text-align: center;
+}
+
+.container-grid div {
+  background: aqua;
+  padding: 30px;
+}
+
+.container-grid div:nth-child(even) {
+  background: grey;
+}

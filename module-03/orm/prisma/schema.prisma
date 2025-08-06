@@ -16,7 +16,6 @@ model User {
   firstname String
   lastname String
   avatar String?
-
   role_id String
   role Role @relation(fields: [role_id], references: [id])
 

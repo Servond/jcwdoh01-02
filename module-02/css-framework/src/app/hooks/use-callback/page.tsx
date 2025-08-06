@@ -10,7 +10,7 @@ export default function UseCallback() {
 
   const addTodo = useCallback(
     (input: string) => {
-      setTodos((t) => [...t, input]);
+      setTodos([...todos, input]);
     },
     [todos]
   );
@@ -18,6 +18,7 @@ export default function UseCallback() {
   return (
     <div className="container ml-0 mr-0">
       <div className="flex flex-col gap-5 justify-center items-center">
+        <Todos todos={todos} addTodo={addTodo} />
         <Todos todos={todos} addTodo={addTodo} />
         <div>
           <p>Count: {count}</p>

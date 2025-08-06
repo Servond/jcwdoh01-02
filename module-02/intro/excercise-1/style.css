@@ -1,0 +1,18 @@
+.yellow-1 {
+  background-color: #f4d04e;
+}
+
+.text-preset-1 {
+  font-size: 24px;
+  line-height: 150%;
+  letter-spacing: 0px;
+}
+
+.card-container {
+  width: 327px;
+  height: 501px;
+  border: 1px solid #111111;
+  border-radius: 20px;
+  padding: 24px;
+  margin: 156px auto 156px auto;
+}

@@ -1,20 +1,3 @@
 {
-  "expense": [
-    {
-      "title": "GAJI",
-      "nominal": 5200000,
-      "type": "INCOME",
-      "category": "SALARY",
-      "date": "2025-06-30T17:00:00.000Z",
-      "id": 1
-    },
-    {
-      "title": "GOJEK",
-      "nominal": 5200,
-      "type": "EXPENSE",
-      "category": "TRANSPORT",
-      "date": "2025-06-30T17:00:00.000Z",
-      "id": 2
-    }
-  ]
+    "expense": []
 }

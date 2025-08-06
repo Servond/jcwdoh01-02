@@ -16,3 +16,18 @@ const personJS = {
 function greetPersonJS(person) {
   return `Hello, ${person.nama}`;
 }
+
+const obj = {
+  fullname: "budi",
+  props: {
+    fullname: "desi",
+    getFullname: () => {
+      console.log(this);
+    },
+  },
+  test: () => {
+    console.log(this.fullname);
+  },
+};
+
+console.log(obj);

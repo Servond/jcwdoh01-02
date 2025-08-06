@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link ref="stylesheet" href="./grid.css" />
+    <title>Document</title>
+    <style>
+      .container-grid {
+        width: 800px;
+        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 200px 100px 100px;
+        gap: 5px;
+      }
+
+      .container-grid div {
+        background: aqua;
+        padding: 30px;
+      }
+
+      .container-grid div:nth-child(even) {
+        background: grey;
+      }
+
+      .kotak {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-grid">
+      <div class="kotak">1</div>
+      <div class="kotak">2</div>
+      <div class="kotak">3</div>
+      <div class="kotak">4</div>
+      <div class="kotak">5</div>
+      <div class="kotak">6</div>
+      <div class="kotak">7</div>
+      <div class="kotak">8</div>
+      <div class="kotak">9</div>
+    </div>
+  </body>
+</html>

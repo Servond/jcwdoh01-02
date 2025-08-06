@@ -6,6 +6,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
+import { Button } from "@/components/ui/button";
 
 import { Expense } from "@/features/expense/type";
 
@@ -29,6 +30,11 @@ export default function TableColumn() {
     },
     {
       header: "ACTION",
+      cell: ({ row }) => {
+        const expense = row.original;
+
+        return <Button>Delete</Button>;
+      },
     },
   ];
 

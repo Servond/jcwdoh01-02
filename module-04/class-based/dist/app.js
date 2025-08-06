@@ -26,6 +26,11 @@ class App {
         this.app.use(express_1.default.json());
     }
     initializeRoutes() {
+        this.app.get("/", (req, res) => {
+            res.json({
+                message: "This is API",
+            });
+        });
         this.app.use("/users", new user_router_1.UserRouter().router);
     }
     initializeErrorMiddleware() {

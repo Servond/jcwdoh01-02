@@ -16,5 +16,9 @@ export class UserRouter {
       "/",
       this.userController.createUserController.bind(this.userController)
     );
+    this.router.get(
+      "/schedule",
+      this.userController.taskScheduler.bind(this.userController)
+    );
   }
 }

@@ -23,18 +23,30 @@ export class UserDAL {
       throw err;
     }
   }
-  static async createUserDAL(
-    tx: Prisma.TransactionClient,
-    params: ICreateUserParams
-  ): Promise<User | null> {
+  static async createUserDAL(params: ICreateUserParams): Promise<User | null> {
     try {
-      const user = await tx.user.create({
+      const user = await db.user.create({
         data: {
           ...params,
         },
       });
 
       return user;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  static async updateActiveUserDal(): Promise<void> {
+    try {
+      await db.user.updateMany({
+        data: {
+          isActive: true,
+        },
+        where: {
+          isActive: false,
+        },
+      });
     } catch (err) {
       throw err;
     }

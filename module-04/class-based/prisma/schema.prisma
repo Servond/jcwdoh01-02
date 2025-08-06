@@ -14,6 +14,7 @@ model User {
   password String 
   firstname String 
   lastname String
+  isActive  Boolean @default(false)
   roleId  Int
   role Role @relation(fields: [roleId], references: [id])
 }

@@ -4,6 +4,7 @@ import cors from "cors";
 
 import { PORT } from "./config/env";
 
+import taskScheduler from "./helpers/taskScheduler";
 import { UserRouter } from "./routers/user.router";
 
 import { ErrorMiddleware } from "./middlewares/error.middleware";
@@ -14,6 +15,7 @@ export class App {
 
   constructor() {
     this.initializeMiddlewares();
+    // this.initializeTaskScheduler();
     this.initializeRoutes();
     this.initializeErrorMiddleware();
   }
@@ -30,6 +32,10 @@ export class App {
 
   private initializeErrorMiddleware() {
     this.app.use(ErrorMiddleware);
+  }
+
+  private initializeTaskScheduler() {
+    taskScheduler();
   }
 
   start() {

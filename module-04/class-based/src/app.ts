@@ -1,4 +1,4 @@
-import express, { Application } from "express";
+import express, { Application, Request, Response, NextFunction } from "express";
 import helmet from "helmet";
 import cors from "cors";
 
@@ -27,6 +27,11 @@ export class App {
   }
 
   private initializeRoutes() {
+    this.app.get("/", (req: Request, res: Response) => {
+      res.json({
+        message: "This is API",
+      });
+    });
     this.app.use("/users", new UserRouter().router);
   }
 
